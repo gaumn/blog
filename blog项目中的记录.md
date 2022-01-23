@@ -24,14 +24,44 @@ use database 数据库名 //使用该数据库
 
 1.4 数据表操作
 
+user表
+
 ``` sql
-create table  `user`( `id` int NOT NULL auto_increment,
+create table  `user`( 
+ `id` int NOT NULL auto_increment,
 `nickName` varchar(50) DEFAULT  NULL ,
 `password` varchar(50) DEFAULT  NULL ,
 `created` datetime DEFAULT  NULL,
-`lastlogin` datetime DEFAULT  NULL,
+`lastLogin` datetime DEFAULT  NULL,
 primary key (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+blog表
+```sql
+CREATE TABLE `blog` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `content` longtext,
+  `created` datetime NOT NULL,
+  `lastModification` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '默认取当前时间',
+  `status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+blogContent表
+
+```sql
+CREATE TABLE `blogContent` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+ `blog_id` int NOT NULL,
+  `content` longtext,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4;
 ```
 
 ### 2.连接数据库

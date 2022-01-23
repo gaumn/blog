@@ -28,6 +28,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * **/
 public class MybatisPlusConfig {
     @Bean
+//    @Bean注解用于告诉方法，产生一个Bean对象，然后这个Bean对象交给Spring管理
     public PaginationInterceptor paginationInterceptor() {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
         return paginationInterceptor;
