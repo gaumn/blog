@@ -54,7 +54,7 @@ CREATE TABLE `blog` (
 blogContent表
 
 ```sql
-CREATE TABLE `blogContent` (
+CREATE TABLE `blogComment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
  `blog_id` int NOT NULL,
