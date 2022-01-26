@@ -46,11 +46,17 @@ blogComment表
 
 ### blog从后端获取的数据部分（均以明文形式）
 
-主页：分表查询blog中展示前十个的blog （status状态为公开类型）的主题(title)，作者(用户名)，描述信息，创建时间等
+#### 读功能：
 
-blog展示页面获得 blog的基本信息：取到blogid，去查询到userid 同时查询到blogConentid
+##### 主页：
 
-得到的blog数据为一个新的blog对象
+分表查询blog中展示前十个的blog （status状态为公开类型）的主题(title)，作者(用户名)，描述信息，创建时间等
+
+##### blog展示页面
+
+获得 blog的基本信息：取到blogid，去查询到userid 同时查询到blogComment_id
+
+得到的blog数据为一个新的blog对象(json数据)
 
 | 对象          | 注释                  |
 | ------------- | --------------------- |
@@ -60,7 +66,39 @@ blog展示页面获得 blog的基本信息：取到blogid，去查询到userid �
 | blog_title    | blog表中的标题        |
 | blog_contents | blog表中的内容        |
 | blog_comments | blogComment表对象数组 |
-|               |                       |
-|               |                       |
-|               |                       |
+
+#### 写功能
+##### 注册用户表/登录用户表
+
+将数据向服务器传入登录信息/注册信息user
+
+##### 发表blog功能
+
+将数据向服务器传入blog表信息
+
+##### 发表评论功能
+
+将数据向服务器传入blogComment表
+
+## 2.具体实现
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
