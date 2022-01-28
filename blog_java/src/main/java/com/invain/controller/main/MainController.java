@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2022/1/22
  **/
 
-@RequestMapping
-@RestController("/")
+//@RequestMapping
+//@RestController("/")
 public class MainController {
 
-    @GetMapping("/")
-    public Object index(){
-        System.out.println("index");
-        return "inGex";
-    }
+//    @GetMapping("/")
+//    public Object index(){
+//        System.out.println("index");
+//        return "inGex";
+//    }
 
 }

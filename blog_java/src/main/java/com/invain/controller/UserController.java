@@ -1,12 +1,11 @@
 package com.invain.controller;
 
 
-import com.invain.Core.Return.Result;
+import com.invain.DataEncapsulation.Return.Result;
 import com.invain.entity.User;
 import com.invain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -34,14 +33,14 @@ public class UserController {
     UserService userService;
     @GetMapping("/index")
     public Result test() {
-        User user= userService.getById(2L);
+        User user= userService.getById(2);
 //        System.out.println(":"+user+"err");
         return Result.err(user);
     }
 
     @GetMapping("/ind")
     public Result test2() {
-        User user= userService.getById(1L);
+        User user= userService.getById(1);
 //        System.out.println(user);
         return Result.success(user);
     }

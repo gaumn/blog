@@ -82,6 +82,79 @@ blogComment表
 
 ## 2.具体实现
 
+### 读功能
+
+##### 主页：
+
+```
+    @Autowired
+    BlogController blogController;
+    Result result;
+    @GetMapping("/")
+    public Object homepage(){
+        result= blogController.blogs(1);
+        System.out.println("index");
+        return result;
+    }
+```
+
+##### blog展示页面：
+
+```java
+@GetMapping("/blog/{id}")
+public BlogExhibitions BlogExhibitions(Integer currentPage, @PathVariable(name = "id") int blog_id) {
+    Blog blog = blogController.detail(blog_id);
+    IPage blogComment =blogcommentController.blogComment(currentPage, blog_id);
+    return BlogExhibitions.returnBlogExhibitions(blog,blogComment);
+}
+```
+内部封装
+```java
+@Data
+public class BlogExhibitions {
+
+    private Blog blogDate;
+    private IPage blogCommentPage;
+    static BlogExhibitions blogExhibitions =new BlogExhibitions();
+    public static BlogExhibitions returnBlogExhibitions(Blog blogDate, IPage blogCommentPage){
+        blogExhibitions.setBlogDate(blogDate);
+        blogExhibitions.setBlogCommentPage(blogCommentPage);
+        return blogExhibitions;
+    }
+    public static BlogExhibitions returnBlogComments ( IPage blogCommentPage){
+        blogExhibitions.setBlogCommentPage(blogCommentPage);
+        return blogExhibitions;
+    }
+}
+```
+
+控制器
+
+```java
+    @Autowired
+    BlogcommentService blogcommentService;
+//    @GetMapping("/blog/{id}")  @PathVariable(name = "id")
+    public IPage blogComment(Integer currentPage,int blog_id) {
+
+        if(currentPage == null || currentPage < 1) currentPage = 1;
+        Page page = new Page(currentPage, 20);
+        IPage pageData = blogcommentService.page(page, new QueryWrapper<Blogcomment>()
+                                            .eq("id", blog_id)
+                                            .orderByDesc("created"));
+        return pageData;
+    }
+```
+
+
+
+### 写功能
+
+##### 注册用户表/登录用户表
+
+##### 发表blog功能
+
+##### 发表评论功能
+
 
 
 

@@ -1,8 +1,6 @@
-package com.invain.Core.Return;
+package com.invain.DataEncapsulation.Return;
 
 import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  * @autor invain
