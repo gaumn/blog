@@ -35,7 +35,7 @@ public class ExhibitionController {//展示功能控制器
         return result;
     }
     @GetMapping("/blog/{id}")
-    public BlogExhibitions BlogExhibitions(Integer currentPage, @PathVariable(name = "id") int blog_id) {
+    public BlogExhibitions BlogExhibitions(@PathVariable(name="currentPage") Integer currentPage, @PathVariable(name = "id") int blog_id) {
         Blog blog = blogController.detail(blog_id);
         IPage blogComment =blogcommentController.blogComment(currentPage, blog_id);
         return BlogExhibitions.returnBlogExhibitions(blog,blogComment);

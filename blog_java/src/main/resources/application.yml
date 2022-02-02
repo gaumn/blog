@@ -1,4 +1,6 @@
 # DataSource Config
+server:
+  port: 8081
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver #mysql 8以上的jdbc驱动
