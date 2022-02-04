@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+.NavigationBar {
+  /* background-color: aqua; */
+  /* color: blue; */
+  font-size: larger;
+  width: 100%;
+  height: 100%;
+  float: right;
+  color: palegreen;
+  /* background-image: url(../imgs/\\(16\).png); */
+}
