@@ -2,18 +2,20 @@
  * @Description: 标题栏
  * @Author: gaumn 
  * @Date: 2022-02-05 21:07:14
- * @LastEditTime: 2022-02-06 14:07:53
+ * @LastEditTime: 2022-02-07 12:00:23
  * @LastEditors: gaumn
 -->
 <template>
-<div class="login-box">
+
   <div id="Navigation" >
     
     <div id="header" :title="message">欢迎来我的Blog</div>
+    <div class="login-box">
     
-      www
     </div>
-  </div>
+      
+    </div>
+  
   
 </template>
 

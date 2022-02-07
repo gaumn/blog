@@ -17,12 +17,3 @@
   text-align: center;
   padding-left: 50%;
 } */
-#body {
-  margin: 0;
-  padding: auto;
-  background-image: url(../imgs/2.jpg);
-  position: relative;
-  background-repeat: no-repeat;
-  background-size: auto;
-  color: #fff;
-}

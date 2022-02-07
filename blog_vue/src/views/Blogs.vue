@@ -8,7 +8,7 @@
 <template>
   <div class="blogs">
     <NavigationBar></NavigationBar>
-
+    
  </div>
 
 </template>
