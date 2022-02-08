@@ -2,17 +2,28 @@
  * @Description: 标题栏
  * @Author: gaumn 
  * @Date: 2022-02-05 21:07:14
- * @LastEditTime: 2022-02-07 12:00:23
+ * @LastEditTime: 2022-02-08 21:09:03
  * @LastEditors: gaumn
 -->
 <template>
 
   <div id="Navigation" >
+    <nav>
+     <ul>
+        <li class="navbar"><router-link  to="/">Gaumn's Blog</router-link></li>
+        <li><router-link  to="/blogs">首页</router-link></li>
+        <li><router-link to="/blog/add">发表博客</router-link></li>
+     </ul>
+     <ul class="nav-right">
+        <li><router-link  to="#contact">Contact</router-link></li>
+        <li><router-link  to="#about">About</router-link></li>
+     </ul>
+    </nav>
     
-    <div id="header" :title="message">欢迎来我的Blog</div>
-    <div class="login-box">
-    
-    </div>
+
+    <!-- <div class="login-box"> -->
+      
+    <!-- </div> -->
       
     </div>
   
@@ -33,6 +44,7 @@
 
 </script>
 
-<style>
+<style scoped>
   @import "../css/Navigation.css";
+  @import url(http://fonts.googleapis.com/css?family=Abel|Satisfy);
 </style>

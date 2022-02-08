@@ -2,13 +2,13 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-06 11:48:15
+ * @LastEditTime: 2022-02-08 17:55:14
  * @LastEditors: gaumn
 -->
 <template>
   <div class="blogs">
     <NavigationBar></NavigationBar>
-    
+    首页
  </div>
 
 </template>
