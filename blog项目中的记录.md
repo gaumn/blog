@@ -198,21 +198,125 @@ public class MybatisPlusConfig {
 }
 ```
 
+## 三、前后端分离中解决跨域问题
+
+在Springboot中增加全局过滤器
+
+```
+/**
+ * 配置跨域访问的过滤器
+ * @return
+ */
+@Bean
+public FilterRegistrationBean registerFilter(){
+    FilterRegistrationBean bean = new FilterRegistrationBean();
+    bean.addUrlPatterns("/*");
+    bean.setFilter(new CrosFilter());
+    return bean;
+}
+```
+
+过滤器
+
+```
+package com.invain.config.Filter;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * @autor invain
+ * @date 2022/2/9
+ **/
+public class CrosFilter implements javax.servlet.Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletResponse res = (HttpServletResponse) servletResponse;
+        //*号表示对所有请求都允许跨域访问
+        res.addHeader("Access-Control-Allow-Origin", "*");
+        res.addHeader("Access-Control-Allow-Methods", "*");
+        filterChain.doFilter(servletRequest, servletResponse);
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+}
+```
+
+## 四、Mysql随机生成测试数据
+
+```mysql
+#设置mysql可自定义函数
+SET GLOBAL log_bin_trust_function_creators = 1;
+```
 
 
+```mysql
+#随机字符串生成函数
+create function rs(n int)
+    returns varchar(1024)
+begin
+    declare chars char(52) default 'abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ';
+    declare res varchar(1024) default '';
+    declare i int default 0;
+    repeat
+        set i = i + 1;
+        set res = concat(res,substring(chars,floor(1+rand()*52),1));
+    until i=n end repeat;
+    return res;
+end
+```
 
+MySQL 生成随机时间函数
 
+```mysql
+DROP FUNCTION IF EXISTS func_RandomDateTime;
+#USAGE:
+#SELECT func_RandomDateTime(DATE_FORMAT('2010-12-1 10:10:10','%Y-%m-%d %H:%i:%s'),DATE_FORMAT('2010-12-1 11:10:13','%Y-%m-%d %H:%i:%s')) AS t;
+#
+CREATE
+    FUNCTION func_RandomDateTime(
+    sd DATETIME,
+    ed DATETIME)
+    RETURNS DATETIME
+BEGIN
+    DECLARE sub INT DEFAULT 0;
+    DECLARE ret DATETIME;
+    SET sub = ABS(UNIX_TIMESTAMP(ed)-UNIX_TIMESTAMP(sd));
+    SET ret = DATE_ADD(sd,INTERVAL FLOOR(1+RAND()*(sub-1)) SECOND);
+    RETURN DATE_ADD(sd,INTERVAL FLOOR(1+RAND()*((ABS(UNIX_TIMESTAMP(ed)-UNIX_TIMESTAMP(sd)))-1)) SECOND);
+END;
+```
 
-
-
-
-
-
-
-
-
-
-
+Mysql定义并调用存储过程
+ ``` mysql
+ delimiter //                            #定义标识符为双斜杠
+ drop procedure if exists test;          #如果存在test存储过程则删除
+ create procedure test(n int)                 #创建无参存储过程,名称为test
+ begin
+     declare i int;                      #申明变量
+     set i = 0;                          #变量赋值
+     while i < n do                     #结束循环的条件: 当i大于100时跳出while循环
+     insert into blog.blog ( user_id, title, description, content, created, lastModification,status)
+      values (i,rs(10),rs(20),rs(50),
+              func_RandomDateTime(DATE_FORMAT('2019-12-1 10:10:10','%Y-%m-%d %H:%i:%s'),DATE_FORMAT('2022-12-1 11:10:13','%Y-%m-%d %H:%i:%s')),
+              func_RandomDateTime(DATE_FORMAT('2019-12-1 10:10:10','%Y-%m-%d %H:%i:%s'),DATE_FORMAT('2022-12-1 11:10:13','%Y-%m-%d %H:%i:%s')),
+              1);    #往test表添加数据
+     set i = i + 1;                  #循环一次,i加一
+         end while;                          #结束while循环
+     select * from blog;                 #查看test表数据
+ end
+ //                                      #结束定义语句
+ call test(1000);                            #调用存储过程
+ ```
 
 
 

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.naming.Name;
+
 /**
  * @autor invain
  * @date 2022/1/28
@@ -28,10 +30,16 @@ public class ExhibitionController {//展示功能控制器
     BlogcommentController blogcommentController;
 
     Result result;
+    @GetMapping("/{currentPage}")
+    public Object Homepage(@PathVariable(name = "currentPage")Integer currentPage){
+        result= blogController.blogs(currentPage);
+        System.out.println("/"+currentPage);
+        return result;
+    }
     @GetMapping("/")
     public Object Homepage(){
         result= blogController.blogs(1);
-        System.out.println("index");
+        System.out.println("/");
         return result;
     }
     @GetMapping("/blog/{id}")

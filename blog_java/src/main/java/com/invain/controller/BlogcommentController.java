@@ -31,7 +31,6 @@ public class BlogcommentController {
     BlogcommentService blogcommentService;
 //    @GetMapping("/blog/{id}")  @PathVariable(name = "id")
     public IPage blogComment(Integer currentPage,int blog_id) {
-
         if(currentPage == null || currentPage < 1) currentPage = 1;
         Page page = new Page(currentPage, 20);
         IPage pageData = blogcommentService.page(page, new QueryWrapper<Blogcomment>()
