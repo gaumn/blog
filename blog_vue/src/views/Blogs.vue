@@ -2,16 +2,26 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-09 21:02:52
+ * @LastEditTime: 2022-02-10 15:00:34
  * @LastEditors: gaumn
 -->
 <template>
+
+  
   <div class="blogs">
     <NavigationBar></NavigationBar>
     首页
-  <div>
-    {{blogs}}
+  <div class="container">
+    <div class="panel panel-default"  v-for="it in blogs" :key="it.id" >
+      
+    <div class="panel-body">
+      
+        {{it.id}}
+      
+   </div>
+</div>
   </div>
+  
  </div>
 
 </template>
@@ -23,7 +33,7 @@
   export default {
     name: "Blogs.vue",
     components: {NavigationBar},
-    data() {
+    data:function() {
       return {
         blogs: {},
         currentPage: 1,
@@ -39,7 +49,7 @@
         const _this = this
         axios.get("/" + currentPage).then(res => {
           console.log(res)
-          _this.blogs = res
+          _this.blogs = res.data.data.records
           _this.currentPage = res.data.data.current
           _this.total = res.data.data.total
           _this.pageSize = res.data.data.size
@@ -53,7 +63,7 @@
 </script>
 
 <style scoped>
-
+ @import "../css/PageBody.css";
   /* .mpage {
     margin: 0 auto;
     text-align: center;

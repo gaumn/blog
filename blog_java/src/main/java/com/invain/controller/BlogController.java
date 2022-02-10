@@ -29,7 +29,7 @@ public class BlogController {
 //    @GetMapping("/blogs")
     public  Result blogs(Integer currentPage) {
         if(currentPage == null || currentPage < 1) currentPage = 1;
-        Page page = new Page(currentPage, 5);
+        Page page = new Page(currentPage, 20);
         IPage pageData = blogService.page(page, new QueryWrapper<Blog>()
                                     .orderByDesc("created"));
         return Result.success(pageData);
