@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-12 19:36:48
+ * @LastEditTime: 2022-02-13 00:12:35
  * @LastEditors: gaumn
 -->
 <template>
@@ -27,7 +27,8 @@
 
 <script>
   import NavigationBar from "../components/NavigationBar.vue";
-   import Footer from "../components/Footer.vue";
+  import Footer from "../components/Footer.vue";
+  
   import axios from "axios";
   axios.defaults.baseURL = 'http://localhost:8081'
   export default {
@@ -66,7 +67,7 @@
           
         })
       },
-    getScrollBottomHeight () {
+      getScrollBottomHeight () {
         // 获取整个网页的高的
         let getPageHeight = document.querySelector('html').scrollHeight
         // 获取滚动条卷去的高度
@@ -100,8 +101,6 @@
     //   this.page(1)
     // }
     }
-  
-  
 </script>
 
 <style scoped>

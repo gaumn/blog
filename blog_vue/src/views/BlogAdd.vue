@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-12 17:56:17
+ * @LastEditTime: 2022-02-12 23:08:32
  * @LastEditors: gaumn
 -->
 <template>
@@ -43,15 +43,17 @@
            </div>
         </div>
     </div>
+    <Footer></Footer>
  </div>
 
 </template>
 
 <script>
   import NavigationBar from "../components/NavigationBar.vue";
+  import Footer from "../components/Footer.vue";
   export default {
     name: "BlogAdd.vue",
-    components: {NavigationBar},
+    components: {NavigationBar,Footer},
     data() {
       return {
         blogs: {},
