@@ -1,9 +1,9 @@
-#Navigation {
-  /* background-color: aqua; */
-  /* color: blue; */
-  /* font-size: larger; */
-  /* background-color: #fff; */
-  /* display: block; */
+/* #Navigation {
+  background-color: aqua; 
+  color: blue; 
+  font-size: larger; 
+  background-color: #fff;
+  display: block;
   margin: 0;
   padding: 0%;
   width: 100%;
@@ -11,23 +11,23 @@
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 15px;
-  /* float: right; */
-  /* overflow: hidden; */
-  /* color: palegreen; */
-  /* background-color: aliceblue; */
-}
-#Navigation #header {
+  float: right; 
+  overflow: hidden;
+  color: palegreen; 
+  background-color: aliceblue;
+} */
+/* #Navigation #header {
   font-size: medium;
-  position: relative;
   color: white;
   margin: 0;
   text-align: left;
-  /* vertical-align: text-bottom; */
-  /* padding-left: 0%; */
-}
+  vertical-align: text-bottom; 
+  padding-left: 0%;
+} */
 
-nav {
+#Navigation {
   list-style-type: none;
+  position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-12 15:54:08
+ * @LastEditTime: 2022-02-12 19:36:48
  * @LastEditors: gaumn
 -->
 <template>
@@ -10,7 +10,6 @@
   
   <div class="blogs">
     <NavigationBar></NavigationBar>
-            首页
     <div class="container" >
       <div v-for="array in shows" :key="array">
         <div class="panel panel-default" v-for="it in array" :key="it">
@@ -19,19 +18,21 @@
            </div>
         </div>
       </div>
-    <div v-show="isLoading&&!noPage">isLoading</div>
-    <div v-show="noPage">noPage</div>
-  </div>
+      <div v-show="isLoading&&!noPage">isLoading</div>
+      <div class="noPage" v-show="noPage" >noPage</div>
+    </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
   import NavigationBar from "../components/NavigationBar.vue";
+   import Footer from "../components/Footer.vue";
   import axios from "axios";
   axios.defaults.baseURL = 'http://localhost:8081'
   export default {
     name: "Blogs.vue",
-    components: {NavigationBar},
+    components: {NavigationBar,Footer},
     data:function() {
       return {
         shows:[], //存放滚动区域要显示的数据

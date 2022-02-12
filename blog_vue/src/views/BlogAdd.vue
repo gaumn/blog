@@ -2,13 +2,47 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-08 19:38:21
+ * @LastEditTime: 2022-02-12 17:56:17
  * @LastEditors: gaumn
 -->
 <template>
   <div class="blog">
-    <NavigationBar><a>ssda</a></NavigationBar>
-    Blog ADD
+
+    <NavigationBar><a></a></NavigationBar>
+    <div class="container" >
+        <div class="panel panel-default" >
+           <div class="panel-body">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="firstname" class="col-sm-2 control-label">名字</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="lastname" class="col-sm-2 control-label">姓</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastname" placeholder="请输入姓">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox">请记住我
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">登录</button>
+                  </div>
+                </div>
+              </form>
+           </div>
+        </div>
+    </div>
  </div>
 
 </template>
@@ -50,5 +84,5 @@
     margin: 0 auto;
     text-align: center;
   } */
-
+@import "../css/PageBody.css";
 </style>
