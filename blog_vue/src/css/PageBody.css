@@ -5,7 +5,7 @@
   justify-content: center;
   align-content: space-around;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   border: 10px;
   padding: 20px 50px;
   border-radius: 20px;
@@ -24,4 +24,27 @@ input {
 } */
 .noPage {
   color: white;
+}
+.blogs {
+  background-image: url(../imgs/2.jpg);
+  background-position: fixed;
+  height: 100vh;
+}
+.panel-footer div {
+  display: inline;
+  padding: 20px;
+}
+.panel {
+  width: 40vw;
+}
+.panel .panel-title {
+  text-align: center;
+  margin: 0;
+  display: inline;
+}
+.panel .panel-heading {
+  background-color: wheat;
+}
+.blogs-descrip {
+  display: inline;
 }

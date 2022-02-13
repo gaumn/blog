@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-13 00:12:35
+ * @LastEditTime: 2022-02-13 11:42:37
  * @LastEditors: gaumn
 -->
 <template>
@@ -13,9 +13,24 @@
     <div class="container" >
       <div v-for="array in shows" :key="array">
         <div class="panel panel-default" v-for="it in array" :key="it">
-           <div class="panel-body">
-             {{it}}
+          <div class="panel-heading">
+            <div>
+              标题：
+              <h3 class="panel-title">
+              {{it.title}}
+              </h3>
+            </div>
            </div>
+           <div class="panel-body">
+             <div class="blogs-descrip">相关描述：</div>
+             <div class="blogs-descrip">{{it.description}}</div>
+           </div>
+            <div class="panel-footer">
+              作者ID：<div>{{it.userId}}</div>
+              创建时间：<div> {{it.created}}</div>
+            </div>
+
+
         </div>
       </div>
       <div v-show="isLoading&&!noPage">isLoading</div>

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-05 22:13:44
- * @LastEditTime: 2022-02-08 21:08:31
+ * @LastEditTime: 2022-02-13 17:42:59
  * @LastEditors: gaumn
  */
 // import Vue from 'vue'
@@ -11,7 +11,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Blogs from '../views/Blogs.vue'
 import BlogDetail from '../views/BlogDetail.vue'
-import BlogAdd from '../views/BlogAdd.vue'
+import BlogEdit from '../views/BlogEdit.vue'
 // Vue.use(VueRouter)
 // createApp(Blogs).use(VueRouter)
 const routes = [
@@ -32,8 +32,8 @@ const routes = [
   },
   {
       path: '/blog/add',
-      name: 'BlogAdd',
-      component: BlogAdd
+      name: 'BlogEdit',
+      component: BlogEdit
     },
 ]
 

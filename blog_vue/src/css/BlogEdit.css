@@ -1,0 +1,15 @@
+.blogsEdit {
+  width: 100vw;
+}
+.vMdEditor {
+  background-color: white;
+  color: black;
+  width: 100vw;
+}
+/* v-md-editor {
+  background-color: white;
+} */
+.title {
+  background-color: white;
+  width: 100vw;
+}

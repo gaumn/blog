@@ -5,3 +5,8 @@
   position: fixed;
   bottom: 0;
 }
+.footer .footer-time {
+  position: relative;
+  float: right;
+  padding-right: 3vw;
+}

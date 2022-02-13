@@ -35,7 +35,7 @@
   color: #9d9d9d;
   background-color: #333;
 }
-ul {
+.nav-ul {
   display: inline-block;
   list-style-type: none;
   margin: 0;
@@ -43,20 +43,20 @@ ul {
   overflow: hidden;
   background-color: #333;
 }
-li {
+.nav-ul li {
   float: left;
 }
-li a {
+.nav-ul li a {
   display: block;
   color: gainsboro;
   text-align: center;
   padding: 10px 30px;
   text-decoration: none;
 }
-li a:hover {
+.nav-ul li a:hover {
   color: white;
 }
-li span {
+.nav-ul li span {
   padding: auto 80px;
 }
 /* .blogName {
@@ -76,6 +76,21 @@ li span {
   float: right;
   padding-right: 20px;
 }
+.nav-right li {
+  display: inline-block;
+  list-style-type: none;
+}
+.nav-right li a {
+  display: block;
+  color: gainsboro;
+  text-align: center;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+.nav-right li a:hover {
+  color: white;
+}
+
 .login-box {
   /* display: flex;
   justify-content: center;

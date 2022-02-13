@@ -2,14 +2,14 @@
  * @Description: 标题栏
  * @Author: gaumn 
  * @Date: 2022-02-05 21:07:14
- * @LastEditTime: 2022-02-08 21:09:03
+ * @LastEditTime: 2022-02-13 18:06:47
  * @LastEditors: gaumn
 -->
 <template>
 
   <div id="Navigation" >
     <nav>
-     <ul>
+     <ul class="nav-ul">
         <li class="navbar"><router-link  to="/">Gaumn's Blog</router-link></li>
         <li><router-link  to="/blogs">首页</router-link></li>
         <li><router-link to="/blog/add">发表博客</router-link></li>
