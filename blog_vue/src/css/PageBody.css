@@ -1,5 +1,5 @@
 .container {
-  width: 50vw;
+  width: 60vw;
   word-wrap: break-word; /*宽度若不够换行*/
   display: flex;
   justify-content: center;
@@ -10,15 +10,7 @@
   padding: 20px 50px;
   border-radius: 20px;
 }
-form {
-  width: 50vw;
-}
-input {
-  width: 30vw;
-}
-.form-control {
-  width: 80%;
-}
+
 /* label {
   width: 40vw;
 } */
@@ -27,8 +19,10 @@ input {
 }
 .blogs {
   background-image: url(../imgs/2.jpg);
-  background-position: fixed;
+  /* background-position: relative; */
   height: 100vh;
+  overflow: scroll;
+  background-repeat: no-repeat;
 }
 .panel-footer div {
   display: inline;

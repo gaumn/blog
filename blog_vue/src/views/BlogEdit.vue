@@ -2,26 +2,31 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-13 22:36:01
+ * @LastEditTime: 2022-02-14 15:16:13
  * @LastEditors: gaumn
 -->
 <template>
   <div class="blogs">
 
     <NavigationBar><a></a></NavigationBar>
+    
     <div class="container" >
-      <form action="http://localhost:8081/md" method="post">
-      <div class="title">
-        标题：
-        <input type="text" name="title" /><br>
-        <!-- <input v-model="title" > -->
-        <input type="submit" value="提交">
+      <div class="formData">
+        <div class="border">
+          <div class="div-border">
+            <input class="input-border" v-model="FormDatas.title"/>
+            <!-- <input v-model="title" > -->
+            <span></span>
+            <button class="buttons" @click="submits()">提交</button><br>
+          </div>
+          <div class="div-border">
+            <input class="input-border" v-model="FormDatas.description"/>
+          </div>
+        </div>
+        <!-- <v-md-editor class="vMdEditor" v-model="text" height="80vh"></v-md-editor> -->
+        <v-md-editor class="vMdEditor" v-model="FormDatas.content" height="70vh"></v-md-editor>
       </div>
-      <!-- <v-md-editor class="vMdEditor" v-model="text" height="80vh"></v-md-editor> -->
-      <v-md-editor class="vMdEditor" name="content" height="80vh"></v-md-editor>
-      </form>
     </div>
-      
     
     <Footer></Footer>
  </div>
@@ -31,22 +36,27 @@
 <script>
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
-import axios from 'axios';
+  import axios from 'axios';
+  import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogEdit.vue",
     components: {NavigationBar,Footer},
     data() {
       return {
-        text: '',
-        title:''
+        FormDatas: {
+          title: '我是标题',
+          description:"我是描述",
+          content: '# 我是内容'
+        }
       }
     },
     methods: {
-      submit(){
-         axios.post('/md', {
-                            title: this.title,
-                            content: this.text,
-                          })
+      submits(){
+        console.log(this.FormDatas);
+         axios({ url:"/md",method:'post',data: qs.stringify(this.FormDatas),
+                            headers: {
+                          'Content-Type':  'application/x-www-form-urlencoded;charset=UTF-8'}
+                                  }) 
                           .then(function (response) {
                             console.log(response);
                           })
@@ -57,6 +67,9 @@ import axios from 'axios';
     },
     created() {
     //   this.page(1)
+    // window.addEventListener("beforeunload", function(event) {
+    //         event.returnValue = "我在这写点东西...";
+    //   });
     }
   }
 </script>

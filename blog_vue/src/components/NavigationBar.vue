@@ -2,7 +2,7 @@
  * @Description: 标题栏
  * @Author: gaumn 
  * @Date: 2022-02-05 21:07:14
- * @LastEditTime: 2022-02-13 18:06:47
+ * @LastEditTime: 2022-02-14 14:37:45
  * @LastEditors: gaumn
 -->
 <template>
@@ -12,7 +12,9 @@
      <ul class="nav-ul">
         <li class="navbar"><router-link  to="/">Gaumn's Blog</router-link></li>
         <li><router-link  to="/blogs">首页</router-link></li>
-        <li><router-link to="/blog/add">发表博客</router-link></li>
+        <!-- <li><router-link tag="a" target="_blank" to="/blog/add">发表博客</router-link></li> -->
+        <li><router-link  to="/blog/add">发表博客</router-link></li>
+
      </ul>
      <ul class="nav-right">
         <li><router-link  to="#contact">Contact</router-link></li>

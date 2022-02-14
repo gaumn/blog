@@ -36,3 +36,9 @@ this.axios({
 npm install jquery --save
 npm install bootstrap --save
 ```
+
+```
+npm install qs//安装引入qs
+import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
+```
+
