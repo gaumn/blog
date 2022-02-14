@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-14 15:16:13
+ * @LastEditTime: 2022-02-14 23:35:16
  * @LastEditors: gaumn
 -->
 <template>
@@ -16,7 +16,7 @@
           <div class="div-border">
             <input class="input-border" v-model="FormDatas.title"/>
             <!-- <input v-model="title" > -->
-            <span></span>
+            <span class="edge"></span>
             <button class="buttons" @click="submits()">提交</button><br>
           </div>
           <div class="div-border">
@@ -24,7 +24,8 @@
           </div>
         </div>
         <!-- <v-md-editor class="vMdEditor" v-model="text" height="80vh"></v-md-editor> -->
-        <v-md-editor class="vMdEditor" v-model="FormDatas.content" height="70vh"></v-md-editor>
+        <!-- <v-md-editor class="vMdEditor" v-model="FormDatas.content" height="70vh"></v-md-editor> -->
+         
       </div>
     </div>
     
@@ -43,6 +44,7 @@
     components: {NavigationBar,Footer},
     data() {
       return {
+        text:"# sdad",
         FormDatas: {
           title: '我是标题',
           description:"我是描述",

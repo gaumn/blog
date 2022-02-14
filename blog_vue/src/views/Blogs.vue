@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-13 11:42:37
+ * @LastEditTime: 2022-02-14 23:52:08
  * @LastEditors: gaumn
 -->
 <template>
@@ -12,7 +12,7 @@
     <NavigationBar></NavigationBar>
     <div class="container" >
       <div v-for="array in shows" :key="array">
-        <div class="panel panel-default" v-for="it in array" :key="it">
+        <div class="panel panel-default" v-for="it in array" :key="it" >
           <div class="panel-heading">
             <div>
               标题：
@@ -29,8 +29,6 @@
               作者ID：<div>{{it.userId}}</div>
               创建时间：<div> {{it.created}}</div>
             </div>
-
-
         </div>
       </div>
       <div v-show="isLoading&&!noPage">isLoading</div>
@@ -62,8 +60,8 @@
       }
     },
     beforeMount() {
-    // 在页面挂载前就发起请求
-    this.page(1);
+      // 在页面挂载前就发起请求
+      this.page(1);
     },
     methods: {
       page(currentPage) {
@@ -79,12 +77,13 @@
           console.log(_this.shows);
            //数据请求完成
           _this.isLoading=false;
-          
         })
       },
+      
       getScrollBottomHeight () {
         // 获取整个网页的高的
         let getPageHeight = document.querySelector('html').scrollHeight
+        // console.log("getPageHeight="+getPageHeight);
         // 获取滚动条卷去的高度
         let getScrollTop = window.pageYOffset ||
                           document.documentElement.scrollTop ||
@@ -92,10 +91,13 @@
         // 获取可视区域高度
         let getWindowHeight = window.innerHeight ||
                             document.documentElement.clientHeight
+        // console.log("getWindowHeight="+getWindowHeight);
         // 滚动条到底部的距离
+        //  console.log("getScrollTop="+getScrollTop);
         return getPageHeight - getScrollTop - getWindowHeight
       },
       handleScrollsss () {
+        // console.log(this.getScrollBottomHeight());
         if (this.getScrollBottomHeight() <= 20) {
           if(this.currentPage<=this.pages){
             this.currentPage++;
@@ -110,7 +112,7 @@
     },
     mounted(){
           // 添加滚动事件
-          window.addEventListener('scroll', this.handleScrollsss)
+          window.addEventListener('scroll', this.handleScrollsss,true)
     }
     // created() {
     //   this.page(1)

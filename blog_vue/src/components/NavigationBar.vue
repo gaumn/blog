@@ -2,7 +2,7 @@
  * @Description: 标题栏
  * @Author: gaumn 
  * @Date: 2022-02-05 21:07:14
- * @LastEditTime: 2022-02-14 14:37:45
+ * @LastEditTime: 2022-02-14 17:45:43
  * @LastEditors: gaumn
 -->
 <template>
@@ -17,7 +17,7 @@
 
      </ul>
      <ul class="nav-right">
-        <li><router-link  to="#contact">Contact</router-link></li>
+        <li><a tag="a" target="_blank" href="https://github.com/gaumn">Contact</a></li>
         <li><router-link  to="#about">About</router-link></li>
      </ul>
     </nav>

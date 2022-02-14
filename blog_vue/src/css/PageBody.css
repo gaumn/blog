@@ -19,9 +19,10 @@
 }
 .blogs {
   background-image: url(../imgs/2.jpg);
-  /* background-position: relative; */
-  height: 100vh;
-  overflow: scroll;
+  background-attachment: fixed;
+  /* height: 100vh; */
+  /* overflow: scroll; */
+
   background-repeat: no-repeat;
 }
 .panel-footer div {

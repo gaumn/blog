@@ -31,18 +31,22 @@
   /* padding: 14px 14px; */
 }
 .formData .buttons:hover {
-  background-color: red;
+  background-color: #66afe9;
+}
+.formData .edge {
+  padding-left: auto;
 }
 .div-border {
   /* width: 50vw; */
   word-wrap: normal; /*宽度若不够换行*/
+  padding: 5px;
 }
 .formData .input-border {
   border-radius: 3px;
   width: 40vw;
   outline-style: none;
   border: 1px solid #ccc;
-  /* padding: 10px 14px; */
+  padding: 2px 3px;
 }
 .formData .input-border:focus {
   border-color: #66afe9;

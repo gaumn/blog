@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-02 14:51:51
- * @LastEditTime: 2022-02-14 13:42:51
+ * @LastEditTime: 2022-02-14 20:43:26
  * @LastEditors: gaumn
  */
 // import Vue from 'vue'
@@ -14,10 +14,13 @@ import VMdEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
+import VMdPreview from '@kangc/v-md-editor/lib/preview';
 
 // highlightjs
 import hljs from 'highlight.js';
-
+VMdPreview.use(githubTheme, {
+  Hljs: hljs,
+});
 VMdEditor.use(githubTheme, {
   Hljs: hljs,
 });
@@ -28,13 +31,14 @@ import router from './router'
 // createApp(App).mount('#app')
 // createApp(NavigationBar).mount('#ap')
 // App.config.productionTip = false
-const app = createApp(App)
+const app = createApp(App);
 // new Vue({
 //   router,
 //   render: h => h(App)
 // }).$mount('#app')
 // createApp(App).use(router).mount('#app')
-app.use(router)
+app.use(router);
+app.use(VMdPreview);
 app.use(VMdEditor);
 // app.use(axios)
 app.mount('#app')
