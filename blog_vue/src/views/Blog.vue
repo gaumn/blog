@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:20:15
- * @LastEditTime: 2022-02-17 21:26:40
+ * @LastEditTime: 2022-02-17 21:42:35
  * @LastEditors: gaumn
 -->
 <template>
@@ -14,7 +14,7 @@
             <div class="panel-heading">
                 <div>
                     <h2 class="panel-title"> {{ blog.title }}</h2>
-                    <router-link :to="{name: 'BlogEdit', params: {blogId: blog.id}}" >
+                    <router-link v-if="ownBlog" :to="{name: 'BlogEdit', params: {blogId: blog.id}}" >
                     编辑
                     </router-link>
                 </div>

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-17 21:38:39
+ * @LastEditTime: 2022-02-17 22:25:30
  * @LastEditors: gaumn
 -->
 <template>
@@ -57,12 +57,19 @@
     methods: {
       submits(){
         console.log(this.FormDatas);
+        const _this=this;
          axios({ url:"/md",method:'post',data: qs.stringify(this.FormDatas),
                             headers: {
-                          'Content-Type':  'application/x-www-form-urlencoded;charset=UTF-8'}
+                          'Content-Type':  'application/x-www-form-urlencoded;charset=UTF-8',
+                          "Authorization": localStorage.getItem("token")
+                          }
                                   }) 
                           .then(function (response) {
-                            console.log(response);
+                            console.log(response)
+                            window.alert('操作成功', '提示', {
+                              confirmButtonText: '确定'
+                            });
+                            _this.$router.push("/blogs")
                           })
                           .catch(function (error) {
                             console.log(error);
