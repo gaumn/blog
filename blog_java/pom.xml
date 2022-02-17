@@ -63,7 +63,13 @@
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.2.0</version>
         </dependency>
-<!--        &lt;!&ndash;shiro-redis包&ndash;&gt;-->
+        <!--引入shrio-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shiro</groupId>-->
+<!--            <artifactId>shiro-spring-boot-starter</artifactId>-->
+<!--            <version>1.5.3</version>-->
+<!--        </dependency>-->
+
 <!--        <dependency>-->
 <!--            <groupId>org.crazycake</groupId>-->
 <!--            <artifactId>shiro-redis-spring-boot-starter</artifactId>-->

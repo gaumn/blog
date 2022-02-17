@@ -1,6 +1,7 @@
 package com.invain.controller.main;
 
 
+
 import com.invain.DataEncapsulation.Return.Result;
 import com.invain.controller.BlogController;
 import com.invain.entity.Blog;
@@ -8,8 +9,7 @@ import com.invain.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
+
 
 /**
  * @autor invain
@@ -36,6 +36,7 @@ public class UploadController {
 //        System.out.println("页面\n");
 //        blogController.
         System.out.println(blog);
+
         return Result.success(blog);
     }
 

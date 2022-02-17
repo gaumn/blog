@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-16 17:05:43
+ * @LastEditTime: 2022-02-17 11:39:15
  * @LastEditors: gaumn
 -->
 <template>
@@ -13,22 +13,26 @@
     <div class="container" >
       <div v-for="array in shows" :key="array">
         <div class="panel panel-default" v-for="it in array" :key="it" >
-          <div class="panel-heading">
-            <div>
-              标题：
-              <h3 class="panel-title">
-              {{it.title}}
-              </h3>
+            <div class="panel-heading">
+                <div>
+                  <h3 class="panel-title">
+                  <router-link class="title-link" :to="{name: 'Blog', params: {blogId: it.id}}">
+                    标题：
+                    {{it.title}}
+                  </router-link>
+                   </h3>
+                </div>
             </div>
-           </div>
-           <div class="panel-body">
-             <div class="blogs-descrip">相关描述：</div>
-             <div class="blogs-descrip">{{it.description}}</div>
-           </div>
-            <div class="panel-footer">
-              作者ID：<div>{{it.userId}}</div>
-              创建时间：<div> {{it.created}}</div>
+            <div class="panel-body">
+
+              <div class="blogs-descrip">相关描述：</div>
+              <div class="blogs-descrip">{{it.description}}</div>
             </div>
+              <div class="panel-footer">
+                作者ID：<div>{{it.userId}}</div>
+                创建时间：<div> {{it.created}}</div>
+              </div>
+           
         </div>
       </div>
       <div v-show="isLoading&&!noPage">isLoading</div>

@@ -17,12 +17,15 @@
 .noPage {
   color: white;
 }
-.blogs {
+
+body .blogs {
   background-image: url(../imgs/2.jpg);
+  position: relative;
   background-attachment: fixed;
+  height: 100%;
   /* height: 100vh; */
   /* overflow: scroll; */
-  height: 100vh;
+  /* height: 100vh; */
   background-repeat: no-repeat;
 }
 .panel-footer div {
@@ -42,4 +45,12 @@
 }
 .blogs-descrip {
   display: inline;
+}
+.panel .panel-title .title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.panel .panel-title .title-link:hover {
+  color: #03a9f4;
+  text-decoration: none;
 }
