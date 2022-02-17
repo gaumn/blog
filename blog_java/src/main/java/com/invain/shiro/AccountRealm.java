@@ -12,11 +12,6 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
-
-
-
-
 /**
  * @autor invain
  * @date 2022/2/17
@@ -30,10 +25,12 @@ public class AccountRealm extends AuthorizingRealm {
     UserService userService;
     @Override
     public boolean supports(AuthenticationToken token) {
+
         return token instanceof JwtToken;
     }
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals)
+    {
         return null;
     }
     @Override
