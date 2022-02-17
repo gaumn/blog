@@ -2,13 +2,14 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-02 14:51:51
- * @LastEditTime: 2022-02-14 20:43:26
+ * @LastEditTime: 2022-02-17 21:03:18
  * @LastEditors: gaumn
  */
 // import Vue from 'vue'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import store  from './store'
 // import Axios from 'axios'
 import VMdEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
@@ -38,6 +39,7 @@ const app = createApp(App);
 // }).$mount('#app')
 // createApp(App).use(router).mount('#app')
 app.use(router);
+app.use(store);
 app.use(VMdPreview);
 app.use(VMdEditor);
 // app.use(axios)

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-17 11:39:06
+ * @LastEditTime: 2022-02-17 21:38:39
  * @LastEditors: gaumn
 -->
 <template>
@@ -47,6 +47,7 @@
       return {
         text:"# sdad",
         FormDatas: {
+          id:"",
           title: '我是标题',
           description:"我是描述",
           content: '# 我是内容'
@@ -68,8 +69,22 @@
                           });
       }
     },
+    beforeMount(){
+      const blogId = this.$route.params.blogId
+      console.log(blogId)
+      const _this = this
+      if(blogId) {
+        axios.get('/blog/' + blogId).then(res => {
+          const blog = res.data.blogDate
+          _this.FormDatas.id = blog.id
+          _this.FormDatas.title = blog.title
+          _this.FormDatas.description = blog.description
+          _this.FormDatas.content = blog.content
+        })
+      }
+    },
     created() {
-    //   this.page(1)
+    // this.page(1)
     // window.addEventListener("beforeunload", function(event) {
     //         event.returnValue = "我在这写点东西...";
     //   });
