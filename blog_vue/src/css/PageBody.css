@@ -22,7 +22,7 @@
   background-attachment: fixed;
   /* height: 100vh; */
   /* overflow: scroll; */
-
+  height: 100vh;
   background-repeat: no-repeat;
 }
 .panel-footer div {

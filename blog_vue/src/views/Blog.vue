@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:20:15
- * @LastEditTime: 2022-02-14 23:14:04
+ * @LastEditTime: 2022-02-16 17:07:22
  * @LastEditors: gaumn
 -->
 <template>
@@ -27,7 +27,7 @@
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
   import axios from "axios";
-  axios.defaults.baseURL = 'http://localhost:8081' 
+  axios.defaults.baseURL = 'http://localhost:8081'
   export default {
     name: "BlogDetail.vue",
     components: {NavigationBar,Footer},

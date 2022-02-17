@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-14 23:35:16
+ * @LastEditTime: 2022-02-16 17:08:26
  * @LastEditors: gaumn
 -->
 <template>
@@ -24,7 +24,7 @@
           </div>
         </div>
         <!-- <v-md-editor class="vMdEditor" v-model="text" height="80vh"></v-md-editor> -->
-        <!-- <v-md-editor class="vMdEditor" v-model="FormDatas.content" height="70vh"></v-md-editor> -->
+        <v-md-editor class="vMdEditor" v-model="FormDatas.content" height="74vh"></v-md-editor>
          
       </div>
     </div>
@@ -38,6 +38,7 @@
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
   import axios from 'axios';
+  axios.defaults.baseURL = 'http://localhost:8081'
   import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogEdit.vue",

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-14 23:52:08
+ * @LastEditTime: 2022-02-16 17:05:43
  * @LastEditors: gaumn
 -->
 <template>
@@ -41,7 +41,6 @@
 <script>
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
-  
   import axios from "axios";
   axios.defaults.baseURL = 'http://localhost:8081'
   export default {
