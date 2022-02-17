@@ -9,11 +9,9 @@ import com.invain.controller.BlogController;
 import com.invain.controller.BlogcommentController;
 import com.invain.entity.Blog;
 import com.invain.entity.Blogcomment;
+import com.invain.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.naming.Name;
 
@@ -49,4 +47,10 @@ public class ExhibitionController {//展示功能控制器
         return BlogExhibitions.returnBlogExhibitions(blog,blogComment);
     }
 
+//    @RequestMapping(value = "/login",method = RequestMethod.POST)
+//    public Result Login(User user){
+////        System.out.println("页面\n");
+//        System.out.println(user);
+//        return Result.success(user);
+//    }
 }
