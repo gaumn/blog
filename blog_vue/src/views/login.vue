@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-17 16:15:37
- * @LastEditTime: 2022-02-17 21:17:27
+ * @LastEditTime: 2022-02-18 23:16:11
  * @LastEditors: gaumn
 -->
 <template>
@@ -23,6 +23,7 @@
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
   import axios from "axios";
+  // axios.defaults.baseURL = 'http://8.142.126.226:8081'
   axios.defaults.baseURL = 'http://localhost:8081'
   import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
@@ -31,8 +32,10 @@
     data:function() {
       return {
        FormDatas: {
+          // nickName:'visitor',
+          // password:"123456",
           nickName:'gaumn',
-          password:"123",
+          password:'myblogitem'
         },
         rules: {
           nickName: [

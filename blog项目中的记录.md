@@ -320,16 +320,59 @@ Mysql定义并调用存储过程
 
 
 
+java打包指令
+
+```
+mvn clean package -Dmaven.test.skip=true
+```
+
+vue cli打包指令
+
+```
+npm run build
+```
+Docker容器编排
+```
+docker-compose up -d
+```
+Docker输出日志
+```
+docker logs -f cfa513d52b85
+```
+
+
+
+mysql创建一个用户赋予权限
+
+```
+CREATE USER 'blogUser'@'localhost' IDENTIFIED BY 'Mn*7Zs$gHo9bb';
+```
+
+赋予权限
+
+```
+grant all privileges on blog.* to blogUser@localhost;
+```
+g
+
+远程访问权限
+
+```
+GRANT` `ALL` `PRIVILEGES` `ON` `testDB.* ``TO` `'blogUser'``@``'%'` `IDENTIFIED ``BY` `'Mn*7Zs$gHo9bb'` `WITH` `GRANT` `OPTION``;
+```
 
 
 
 
 
+Docker
 
-
-
-
-
+````
+#Docker查询镜像
+docker image ls
+#Docker查询运行的容器
+docker ps -s
+````
 
 
 

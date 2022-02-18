@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:20:15
- * @LastEditTime: 2022-02-17 21:42:35
+ * @LastEditTime: 2022-02-18 23:32:07
  * @LastEditors: gaumn
 -->
 <template>
@@ -17,6 +17,7 @@
                     <router-link v-if="ownBlog" :to="{name: 'BlogEdit', params: {blogId: blog.id}}" >
                     编辑
                     </router-link>
+                    <button v-if="ownBlog" @click="submitDelete"> 删除</button>
                 </div>
             </div>
             <div class="panel-body">
@@ -39,12 +40,17 @@
   import Footer from "../components/Footer.vue";
   import axios from "axios";
   axios.defaults.baseURL = 'http://localhost:8081'
+  // axios.defaults.baseURL = 'http://8.142.126.226:8081'
+  import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogDetail.vue",
     components: {NavigationBar,Footer},
     data() {
       return {
         blog:{},
+        Dates:{
+          id:""
+        },
         ownBlog: false
       }
     },
@@ -56,6 +62,7 @@
         axios.get("/blog/" + blogId).then(res => {
           console.log(res);
           _this.blog =res.data.blogDate;
+          _this.Dates.id=_this.blog.id;
           _this.ownBlog = (_this.blog.userId === _this.$store.getters.getUser.id);
           // console.log("_this.blog.userId="+_this.blog.userId
           //             +"_this.$store.getters.getUser.id="+_this.$store.getters.getUser.id);
@@ -64,6 +71,26 @@
           // _this.pageSize = res.data.data.size;
           // _this.pages = res.data.data.pages;   
       })
+    },
+    methods: {
+      submitDelete(){
+        console.log( qs.stringify(this.Dates));
+        const _this=this;
+        // this.id=this.blog.id;
+         axios({ url:"/delete",method:'post',data: qs.stringify(this.Dates),
+                            headers: {
+                          'Content-Type':  'application/x-www-form-urlencoded;charset=UTF-8',
+                          "Authorization": localStorage.getItem("token")
+                          }
+                                  }) 
+                          .then(function (response) {
+                            console.log(response)
+                            _this.$router.push("/blogs")
+                          })
+                          .catch(function (error) {
+                            console.log(error);
+                          });
+      }
     },
     created() {
       //  const blogId = this.$route.params.blogId

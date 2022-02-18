@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-17 22:25:30
+ * @LastEditTime: 2022-02-18 22:07:42
  * @LastEditors: gaumn
 -->
 <template>
@@ -39,6 +39,7 @@
   import Footer from "../components/Footer.vue";
   import axios from 'axios';
   axios.defaults.baseURL = 'http://localhost:8081'
+  // axios.defaults.baseURL = 'http://8.142.126.226:8081'
   import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogEdit.vue",
