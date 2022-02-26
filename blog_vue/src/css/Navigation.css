@@ -14,12 +14,8 @@ body {
   height: 100vh;
 }
 #Navigation {
-  list-style-type: none;
   height: 40px;
-  position: relative;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
   color: #9d9d9d;
   background-color: #333;
 }
@@ -34,16 +30,16 @@ body {
 .nav-ul li {
   float: left;
 }
-.nav-ul li a {
+.nav-item a {
   display: block;
   color: gainsboro;
   text-align: center;
   padding: 10px 30px;
   text-decoration: none;
 }
-.nav-ul li a:hover {
+/* .nav-ul li a:hover {
   color: white;
-}
+} */
 .nav-ul li span {
   padding: auto 80px;
 }
@@ -75,9 +71,9 @@ body {
   padding: 10px 30px;
   text-decoration: none;
 }
-.nav-right li a:hover {
+/* .nav-right li a:hover {
   color: white;
-}
+} */
 
 .login-box {
   /* display: flex;

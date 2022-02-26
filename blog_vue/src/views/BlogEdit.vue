@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:43:22
- * @LastEditTime: 2022-02-18 22:07:42
+ * @LastEditTime: 2022-02-26 09:56:22
  * @LastEditors: gaumn
 -->
 <template>
@@ -38,8 +38,9 @@
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
   import axios from 'axios';
-  axios.defaults.baseURL = 'http://localhost:8081'
-  // axios.defaults.baseURL = 'http://8.142.126.226:8081'
+  // axios.defaults.baseURL = 'http://localhost:8081'
+  // axios.defaults.baseURL = 'https://java.gaumn.cn'
+  axios.defaults.baseURL = 'http://8.142.126.226:8081'
   import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogEdit.vue",
@@ -59,7 +60,7 @@
       submits(){
         console.log(this.FormDatas);
         const _this=this;
-         axios({ url:"/md",method:'post',data: qs.stringify(this.FormDatas),
+         axios({ url:"/md",method:'post',data:qs.stringify(this.FormDatas) ,
                             headers: {
                           'Content-Type':  'application/x-www-form-urlencoded;charset=UTF-8',
                           "Authorization": localStorage.getItem("token")

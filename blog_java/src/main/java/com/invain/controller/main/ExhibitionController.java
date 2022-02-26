@@ -10,6 +10,7 @@ import com.invain.controller.BlogcommentController;
 import com.invain.entity.Blog;
 import com.invain.entity.Blogcomment;
 import com.invain.entity.User;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +41,11 @@ public class ExhibitionController {//展示功能控制器
         System.out.println("/");
         return result;
     }
+
     @GetMapping("/blog/{id}")
     public BlogExhibitions BlogExhibitions(@PathVariable(name = "id") int blog_id) {
         Blog blog = blogController.detail(blog_id);
+        System.out.println("sssada");
         IPage blogComment =blogcommentController.blogComment(5, blog_id);
         return BlogExhibitions.returnBlogExhibitions(blog,blogComment);
     }

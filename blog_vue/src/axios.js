@@ -2,13 +2,14 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-07 11:35:24
- * @LastEditTime: 2022-02-18 19:14:44
+ * @LastEditTime: 2022-02-26 09:57:12
  * @LastEditors: gaumn
  */
 import axios from 'axios'
 // import router from './router'
 // axios.defaults.baseURL = 'http://8.142.126.226:8081'
-axios.defaults.baseURL = 'http://localhost:8081'
+// axios.defaults.baseURL = 'http://localhost:8081'
+axios.defaults.baseURL = 'http://8.142.126.226:8081'
 // 前置拦截
 // axios.interceptors.request.use(config => {
 //   return config

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-02 14:51:51
- * @LastEditTime: 2022-02-17 21:03:18
+ * @LastEditTime: 2022-02-21 13:30:00
  * @LastEditors: gaumn
  */
 // import Vue from 'vue'
@@ -43,4 +43,5 @@ app.use(store);
 app.use(VMdPreview);
 app.use(VMdEditor);
 // app.use(axios)
+
 app.mount('#app')

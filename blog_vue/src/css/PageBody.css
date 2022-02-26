@@ -1,5 +1,5 @@
 .container {
-  width: 60vw;
+  width: 100vw;
   word-wrap: break-word; /*宽度若不够换行*/
   display: flex;
   justify-content: center;
@@ -28,12 +28,9 @@ body .blogs {
   /* height: 100vh; */
   background-repeat: no-repeat;
 }
-.panel-footer div {
-  display: inline;
-  padding: 20px;
-}
-.panel {
-  width: 40vw;
+
+.card {
+  width: 80vw;
 }
 .panel .panel-title {
   text-align: center;
@@ -43,8 +40,12 @@ body .blogs {
 .panel .panel-heading {
   background-color: wheat;
 }
-.blogs-descrip {
+.card-body .blogs-descrip {
   display: inline;
+}
+.card-footer div {
+  display: inline;
+  padding: 20px;
 }
 .panel .panel-title .title-link {
   color: inherit;

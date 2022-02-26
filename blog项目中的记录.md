@@ -51,10 +51,10 @@ CREATE TABLE `blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-blogContent表
+blogcomment表
 
 ```sql
-CREATE TABLE `blogComment` (
+CREATE TABLE `blogcomment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
  `blog_id` int NOT NULL,
@@ -372,6 +372,8 @@ Docker
 docker image ls
 #Docker查询运行的容器
 docker ps -s
+#重启docker
+systemctl restart docker
 ````
 
 

@@ -2,38 +2,37 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-18 19:14:45
+ * @LastEditTime: 2022-02-26 11:13:39
  * @LastEditors: gaumn
 -->
 <template>
 
   
-  <div class="blogs">
+  <div >
     <NavigationBar></NavigationBar>
     <div class="container" >
       <div v-for="array in shows" :key="array">
-        <div class="panel panel-default" v-for="it in array" :key="it" >
-            <div class="panel-heading">
-                <div>
+        <div class="card" v-for="it in array" :key="it">
+          <div class="card-header">
+             <div>
                   <h3 class="panel-title">
                   <router-link class="title-link" :to="{name: 'Blog', params: {blogId: it.id}}">
-                    标题：
                     {{it.title}}
                   </router-link>
                    </h3>
-                </div>
-            </div>
-            <div class="panel-body">
-
-              <div class="blogs-descrip">相关描述：</div>
-              <div class="blogs-descrip">{{it.description}}</div>
-            </div>
-              <div class="panel-footer">
-                作者ID：<div>{{it.userId}}</div>
-                创建时间：<div> {{it.created}}</div>
               </div>
-           
+          </div>
+          <div class="card-body">
+            <div class="blogs-descrip">相关描述：</div>
+            <div class="blogs-descrip">{{it.description}}</div>
+          </div> 
+          <div class="card-footer">
+            <!-- 作者ID：<div>{{it.userId}}</div> -->
+                创建时间：<div> {{it.created.substring(0,10)}}</div>
+                更改时间：<div>{{it.lastModification.substring(0,10)}} </div>
+          </div>
         </div>
+        
       </div>
       <div v-show="isLoading&&!noPage">isLoading</div>
       <div class="noPage" v-show="noPage" >noPage</div>
@@ -46,8 +45,9 @@
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
   import axios from "axios";
-  axios.defaults.baseURL = 'http://localhost:8081'
-  // axios.defaults.baseURL = 'http://8.142.126.226:8081'
+  // axios.defaults.baseURL = 'http://localhost:8081'
+  // axios.defaults.baseURL = 'https://java.gaumn.cn'
+  axios.defaults.baseURL = 'http://8.142.126.226:8081'
   export default {
     name: "Blogs.vue",
     components: {NavigationBar,Footer},

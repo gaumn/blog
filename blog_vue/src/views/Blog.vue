@@ -2,34 +2,33 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:20:15
- * @LastEditTime: 2022-02-18 23:32:07
+ * @LastEditTime: 2022-02-26 10:57:34
  * @LastEditors: gaumn
 -->
 <template>
   <div>
     <NavigationBar></NavigationBar>
 
-    <div class="blogs">
-     <div class="panel panel-default"  >
-            <div class="panel-heading">
-                <div>
-                    <h2 class="panel-title"> {{ blog.title }}</h2>
-                    <router-link v-if="ownBlog" :to="{name: 'BlogEdit', params: {blogId: blog.id}}" >
-                    编辑
-                    </router-link>
-                    <button v-if="ownBlog" @click="submitDelete"> 删除</button>
-                </div>
-            </div>
-            <div class="panel-body">
-              <v-md-preview :text="blog.content">{{blog}}</v-md-preview>
-            </div>    
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="panel-title"> {{ blog.title }}</h2>
+          <router-link v-if="ownBlog" :to="{name: 'BlogEdit', params: {blogId: blog.id}}" >
+           编辑
+          </router-link>
+          <button v-if="ownBlog" @click="submitDelete()"> 删除</button>
         </div>
+      </div>
+      <div class="card-body">
+        <v-md-preview :text="blog.content">{{blog}}</v-md-preview>
+      </div> 
+      <!-- <div class="card-footer">底部</div> -->
+    </div>
     
      
         
       <!-- <div class="markdown-body" v-html="blog.content"></div> -->
         
-    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -39,8 +38,9 @@
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
   import axios from "axios";
-  axios.defaults.baseURL = 'http://localhost:8081'
-  // axios.defaults.baseURL = 'http://8.142.126.226:8081'
+  // axios.defaults.baseURL = 'http://localhost:8081'
+  // axios.defaults.baseURL = 'https://java.gaumn.cn'
+  axios.defaults.baseURL = 'http://8.142.126.226:8081'
   import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogDetail.vue",
@@ -49,9 +49,13 @@
       return {
         blog:{},
         Dates:{
-          id:""
+          id:"",
+          title: 's',
+          description:"m",
+          content: 'q'
         },
-        ownBlog: false
+        ownBlog: false,
+        timeout: null//防抖
       }
     },
     beforeMount() {
@@ -76,8 +80,11 @@
       submitDelete(){
         console.log( qs.stringify(this.Dates));
         const _this=this;
-        // this.id=this.blog.id;
-         axios({ url:"/delete",method:'post',data: qs.stringify(this.Dates),
+        if(this.timeout){
+                    clearTimeout(this.timeout)
+                }
+                this.timeout = setTimeout(() => {
+                    axios({ url:"/delete",method:'post',data: qs.stringify(this.Dates),
                             headers: {
                           'Content-Type':  'application/x-www-form-urlencoded;charset=UTF-8',
                           "Authorization": localStorage.getItem("token")
@@ -90,6 +97,10 @@
                           .catch(function (error) {
                             console.log(error);
                           });
+                }, 500);
+        
+        // this.id=this.blog.id;
+         
       }
     },
     created() {

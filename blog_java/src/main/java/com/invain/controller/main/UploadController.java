@@ -9,6 +9,7 @@ import com.invain.entity.Blog;
 import com.invain.entity.User;
 import com.invain.service.BlogService;
 import com.invain.util.ShiroUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
@@ -22,6 +23,7 @@ import java.time.LocalDateTime;
  * @autor invain
  * @date 2022/1/28
  **/
+@Slf4j
 @RestController
 public class UploadController {
 //    @RequestMapping(value = "/Register",method = RequestMethod.POST)
@@ -34,6 +36,7 @@ public class UploadController {
     BlogController blogController;
     @Autowired
     BlogService blogService;
+
     @RequestMapping(value = "/Register",method = RequestMethod.POST)
     public Result Register(User user){
 //        System.out.println("页面\n");
@@ -42,21 +45,22 @@ public class UploadController {
     }
     @RequiresAuthentication
     @RequestMapping(value = "/md",method = RequestMethod.POST)
-    public Result BlogWrite(Blog blog){
+    public Result BlogWrite(  Blog blog){
 //        System.out.println("页面\n");
 //        blogController.
-        System.out.println(blog);
+//        System.out.println(blog);
         Blog temp = null;
         if(blog.getId() != null) {
             temp = blogService.getById(blog.getId());
             // 只能编辑自己的文章
-            System.out.println(ShiroUtil.getProfile().getId());
+//            System.out.println(ShiroUtil.getProfile().getId());
             Assert.isTrue((int)(temp.getUserId()) == (int)(ShiroUtil.getProfile().getId()) , "没有权限编辑");
+//            temp.setLastModification(LocalDateTime.now());
         } else {
-
             temp = new Blog();
             temp.setUserId(ShiroUtil.getProfile().getId());
             temp.setCreated(LocalDateTime.now());
+//            temp.setLastModification(LocalDateTime.now());
             temp.setStatus(1);
         }
 
@@ -64,20 +68,20 @@ public class UploadController {
         blogService.saveOrUpdate(temp);
         return Result.success(blog);
     }
+
     @RequiresAuthentication
-    @RequestMapping(value = "/delete",method = RequestMethod.POST)
-    public Result BlogDelete(Blog blog){
+    @PostMapping(value = "/delete")
+    public Result BlogDelete( Blog blog){
 //        System.out.println("页面\n");
 //        blogController.
-        System.out.println(blog);
+//        System.out.println(blog);
         Blog temp = null;
         if(blog.getId() != null) {
             temp = blogService.getById(blog.getId());
             // 只能编辑自己的文章
-            System.out.println(ShiroUtil.getProfile().getId());
             Assert.isTrue((int)(temp.getUserId()) == (int)(ShiroUtil.getProfile().getId()) , "没有权限编辑");
         } else {
-            return Result.err("错误");
+            return Result.err(blog);
         }
         blogService.removeById(blog.getId());
         return Result.success(blog);

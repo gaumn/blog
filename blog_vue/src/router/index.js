@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-05 22:13:44
- * @LastEditTime: 2022-02-17 16:18:37
+ * @LastEditTime: 2022-02-23 12:01:34
  * @LastEditors: gaumn
  */
 // import Vue from 'vue'
@@ -13,6 +13,7 @@ import Blogs from '../views/Blogs.vue'
 import Blog from '../views/Blog.vue'
 import BlogEdit from '../views/BlogEdit.vue'
 import Login from '../views/login.vue'
+import Tools from '../views/Tools.vue'
 // Vue.use(VueRouter)
 // createApp(Blogs).use(VueRouter)
 const routes = [
@@ -40,6 +41,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/tools',
+    name: 'tools',
+    component: Tools
   },
 ]
 
