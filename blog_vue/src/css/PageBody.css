@@ -1,57 +1,27 @@
-.container {
-  width: 100vw;
-  word-wrap: break-word; /*宽度若不够换行*/
+/* .container {
+  word-wrap: break-word; 
   display: flex;
   justify-content: center;
   align-content: space-around;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 5px;
   padding: 20px 50px;
   border-radius: 20px;
-}
+} */
 
 /* label {
   width: 40vw;
 } */
-.noPage {
-  color: white;
-}
 
-body .blogs {
+/* 
+body {
   background-image: url(../imgs/2.jpg);
   position: relative;
   background-attachment: fixed;
   height: 100%;
   /* height: 100vh; */
-  /* overflow: scroll; */
-  /* height: 100vh; */
-  background-repeat: no-repeat;
-}
-
-.card {
-  width: 80vw;
-}
-.panel .panel-title {
-  text-align: center;
-  margin: 0;
-  display: inline;
-}
-.panel .panel-heading {
-  background-color: wheat;
-}
-.card-body .blogs-descrip {
-  display: inline;
-}
-.card-footer div {
-  display: inline;
-  padding: 20px;
-}
-.panel .panel-title .title-link {
-  color: inherit;
-  text-decoration: none;
-}
-.panel .panel-title .title-link:hover {
-  color: #03a9f4;
-  text-decoration: none;
-}
+/* overflow: scroll; */
+/* height: 100vh; */
+/* background-repeat: no-repeat; */
+/* }  */

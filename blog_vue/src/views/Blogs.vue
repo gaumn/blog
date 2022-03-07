@@ -2,13 +2,11 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-06 09:55:08
- * @LastEditTime: 2022-02-26 11:13:39
+ * @LastEditTime: 2022-03-07 23:02:41
  * @LastEditors: gaumn
 -->
 <template>
-
-  
-  <div >
+  <div>
     <NavigationBar></NavigationBar>
     <div class="container" >
       <div v-for="array in shows" :key="array">
@@ -32,22 +30,21 @@
                 更改时间：<div>{{it.lastModification.substring(0,10)}} </div>
           </div>
         </div>
-        
       </div>
-      <div v-show="isLoading&&!noPage">isLoading</div>
+
+      <div v-show="isLoading&&!noPage">
+        <img class="img-circle" src="https://cdn.acwing.com/static/web/gif/img_loading.gif"
+                     alt="加载中" title="加载中" style="display: block; margin: 0 auto;" />
+      </div>
       <div class="noPage" v-show="noPage" >noPage</div>
     </div>
     <Footer></Footer>
   </div>
 </template>
 
-<script>
+<script scoped>
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
-  import axios from "axios";
-  // axios.defaults.baseURL = 'http://localhost:8081'
-  // axios.defaults.baseURL = 'https://java.gaumn.cn'
-  axios.defaults.baseURL = 'http://8.142.126.226:8081'
   export default {
     name: "Blogs.vue",
     components: {NavigationBar,Footer},
@@ -70,7 +67,7 @@
     methods: {
       page(currentPage) {
         const _this = this;
-        axios.get("/" + currentPage).then(res => {
+        this.$axios.get("/" + currentPage).then(res => {
           console.log(currentPage);
           _this.blogs =res.data.data.records;
           _this.currentPage = res.data.data.current;
@@ -125,6 +122,40 @@
 </script>
 
 <style scoped>
+  .card {
+  min-width: 60vw;
+  text-align: left;
+  display: flex;
+  margin: 10px;
+  min-height: 0vh; /* 没有元素时，也把页面撑开至100% */
+  }
+  .panel .panel-title {
+    text-align: center;
+    margin: 0;
+    display: inline;
+  }
+  .panel .panel-heading {
+    background-color: wheat;
+  }
+  .card-body .blogs-descrip {
+    display: inline;
+  }
+  .card-footer div {
+    display: inline;
+    padding: 20px;
+  }
+  .panel .panel-title .title-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .panel .panel-title .title-link:hover {
+    color: #03a9f4;
+    text-decoration: none;
+  }
+  .noPage {
+    color: white;
+  }
+
  @import "../css/PageBody.css";
   /* .mpage {
     margin: 0 auto;

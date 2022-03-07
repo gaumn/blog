@@ -2,27 +2,30 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-08 17:20:15
- * @LastEditTime: 2022-02-26 10:57:34
+ * @LastEditTime: 2022-03-07 23:25:50
  * @LastEditors: gaumn
 -->
 <template>
-  <div>
+  <div >
     <NavigationBar></NavigationBar>
-
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <h2 class="panel-title"> {{ blog.title }}</h2>
-          <router-link v-if="ownBlog" :to="{name: 'BlogEdit', params: {blogId: blog.id}}" >
-           编辑
-          </router-link>
-          <button v-if="ownBlog" @click="submitDelete()"> 删除</button>
+    <div class="container">
+      <div class="card" style="min-height: 80vh;" >
+        <div class="card-header" >
+          <div>
+            <h2 class="panel-title" style="text-align: center;"> {{ blog.title }}</h2>
+            <!-- <h3 class="panel-title" style="text-align: right;">
+              <router-link  v-if="ownBlog" :to="{name: 'BlogEdit', params: {blogId: blog.id}}" >
+              编辑
+              </router-link> 
+              <button v-if="ownBlog" @click="submitDelete()"> 删除</button>
+            </h3> -->
+          </div>
         </div>
+        <div class="card-body">
+          <v-md-preview :text="blog.content">{{blog}}</v-md-preview>
+        </div> 
+        <!-- <div class="card-footer">底部</div> -->
       </div>
-      <div class="card-body">
-        <v-md-preview :text="blog.content">{{blog}}</v-md-preview>
-      </div> 
-      <!-- <div class="card-footer">底部</div> -->
     </div>
     
      
@@ -37,10 +40,6 @@
   
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
-  import axios from "axios";
-  // axios.defaults.baseURL = 'http://localhost:8081'
-  // axios.defaults.baseURL = 'https://java.gaumn.cn'
-  axios.defaults.baseURL = 'http://8.142.126.226:8081'
   import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogDetail.vue",
@@ -63,7 +62,7 @@
         const blogId = this.$route.params.blogId;
         console.log(blogId);
         const _this = this;
-        axios.get("/blog/" + blogId).then(res => {
+        this.$axios.get("/blog/" + blogId).then(res => {
           console.log(res);
           _this.blog =res.data.blogDate;
           _this.Dates.id=_this.blog.id;
@@ -84,7 +83,7 @@
                     clearTimeout(this.timeout)
                 }
                 this.timeout = setTimeout(() => {
-                    axios({ url:"/delete",method:'post',data: qs.stringify(this.Dates),
+                    this.$axios({ url:"/delete",method:'post',data: qs.stringify(this.Dates),
                             headers: {
                           'Content-Type':  'application/x-www-form-urlencoded;charset=UTF-8',
                           "Authorization": localStorage.getItem("token")
@@ -120,6 +119,15 @@
 </script>
 
 <style scoped>
+  .blog-title {
+    text-align: center;
+  }
+  .card {
+    /* text-align: center; */
+    display: flex;
+    /* 没有元素时，也把页面撑开至90%*/
+  }
+
   @import "../css/Blog.css";
   .mblog {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);

@@ -378,6 +378,19 @@ systemctl restart docker
 
 
 
+查询正在运行的java程序
+
+```
+ps -ef | grep java
+```
+查询特定端口是否在运行
+```
+netstat -anp|grep 8081
+
+```
+
+
+
 
 
 

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-23 11:30:25
- * @LastEditTime: 2022-02-26 09:56:51
+ * @LastEditTime: 2022-03-07 22:56:13
  * @LastEditors: gaumn
 -->
 <!--
@@ -33,11 +33,6 @@
   
   import NavigationBar from "../components/NavigationBar.vue";
   import Footer from "../components/Footer.vue";
-  import axios from "axios";
-  // axios.defaults.baseURL = 'http://localhost:8081'
-  // axios.defaults.baseURL = 'https://java.gaumn.cn'
-  axios.defaults.baseURL = 'http://8.142.126.226:8081'
-//   import qs from 'qs';//引入qs将对象转换未json键值对qs.stringify()
   export default {
     name: "BlogDetail.vue",
     components: {NavigationBar,Footer},
@@ -69,5 +64,11 @@
 </script>
 
 <style scoped>
+  .textborder {
+    width: 60vw;
+    height: 80vh;
+    text-align: left;
+  }
+
   @import "../css/Tools.css";
 </style>

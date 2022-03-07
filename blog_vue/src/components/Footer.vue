@@ -2,14 +2,17 @@
  * @Description: 
  * @Author: gaumn 
  * @Date: 2022-02-12 19:15:55
- * @LastEditTime: 2022-02-17 08:49:52
+ * @LastEditTime: 2022-03-07 22:57:06
  * @LastEditors: gaumn
 -->
 <template>
 
     <div id="Footer" class="footer">
       <div class="run-times" >本站已经正常运行{{ runtimes}}天</div>
-      <div class="copy-right">@2022-{{yy}} By gaumn invain</div>
+      <div class="copy-right">
+           @2022-{{yy}} By gaumn |
+           <a href="http://beian.miit.gov.cn/">蜀ICP备2022004575号-1</a>       
+      </div>
       <div class="footer-time" :title="days">{{time}}</div>      
     </div>
   
@@ -72,6 +75,27 @@
 </script>
 
 <style scoped>
+.footer {
+  height: 3vh;
+  width: 100%;
+  background-color: rgb(245, 97, 97);
+  position: fixed;
+  bottom: 0;
+}
+.footer .footer-time {
+  float: right;
+  padding-right: 3vw;
+}
+.copy-right {
+  display: inline-block;
+  margin: 0 auto;
+  padding-left: 20vw;
+}
+.run-times {
+  display: inline-block;
+  padding-left: 5vw;
+}
+
   @import "../css/footer.css";
   /* @import url(http://fonts.googleapis.com/css?family=Abel|Satisfy); */
 </style>

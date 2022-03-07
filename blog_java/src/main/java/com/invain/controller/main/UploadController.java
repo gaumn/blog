@@ -46,7 +46,7 @@ public class UploadController {
     @RequiresAuthentication
     @RequestMapping(value = "/md",method = RequestMethod.POST)
     public Result BlogWrite(  Blog blog){
-//        System.out.println("页面\n");
+        System.out.println("页面\n");
 //        blogController.
 //        System.out.println(blog);
         Blog temp = null;
